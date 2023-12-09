@@ -16,7 +16,9 @@
     </div>
 
     Topic:
-    <a href="#" style="text-decoration: none">{{ posts.title }}</a>
+    <a href="{% url 'blog-detail' posts.id %}" style="text-decoration: none"
+      >{{ posts.title }}</a
+    >
     <p>{{ post.intro }}</p>
 
     <p class="article-content">{{ posts.content }}</p>

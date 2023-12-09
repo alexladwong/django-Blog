@@ -39,7 +39,7 @@
               <span></span>
               <span></span>
               <span></span>
-              <a href="" id="auth_links" style="color: aliceblue; gap: 2px;"><button> Create Post</button></a> 
+              <a href="{% url 'myblogApp-new' %}" id="auth_links" style="color: aliceblue; gap: 2px;"><button> Create Post</button></a> 
             </a>
             
             <span> </span>
@@ -53,7 +53,8 @@
               <span></span>
               <span></span>
               <span></span>
-              <a href="{% url 'logout' %}" id="auth_links" style="color:aliceblue;"><button>Logout</button></a>
+              <a href="{% url 'logout' %}" id="auth_links" style="color:aliceblue;">
+                <button>Logout</button></a>
           </a>
             {% else %}   
             
