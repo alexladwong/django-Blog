@@ -1,0 +1,27 @@
+{% extends "myblogApp/base.html" %} {% block content %} {% for posts in posts %}
+
+<article class="media content-section">
+  <img
+    class="rounded-cirlce article-img"
+    src="{{ posts.author.profile.image.url }}"
+    alt=""
+  />
+  <div class="media-body">
+    <div class="article-metadata">
+      Author:
+      <a class="mr-2" href="#" style="font-size: 16px; font-weight: 800">
+        {{ posts.author }}</a
+      >
+      <small class="text-muted">{{ posts.date_added }}</small>
+    </div>
+
+    Topic:
+    <a href="#" style="text-decoration: none">{{ posts.title }}</a>
+    <p>{{ post.intro }}</p>
+
+    <p class="article-content">{{ posts.content }}</p>
+  </div>
+  <br />
+</article>
+
+{% endfor %} {% endblock content %}
