@@ -35,8 +35,13 @@
               class="nav-item nav-link" href="#">Register</a> 
               <button class="noselect">Create Post</button>  {% endcomment %}
               
-              <h5 style="color: #fff; padding: 18px; font-size: 20px;">Welcome back, <a style="color: antiquewhite;" 
-                href="{% url 'profile' %}"><span style="text-decoration: underline; font-weight:bolder;"><i>{{ request.user }}</i> !</span></a></h5>
+              <a href="{% url 'profile' %}"><span style="text-decoration: underline; color: antiquewhite; padding: 10px; font-size: 18px;"><i>{{ request.user }}</i></span><img
+                class="rounded-circle account-img" style="height: 55px; width: 55px;"
+                id="profile-img"
+                src="{{ user.profile.image.url }}"
+                class="img-radius"
+                alt="User-Profile-Image"
+              /></a></div>
               <span></span>
               <span></span>
               <span></span>

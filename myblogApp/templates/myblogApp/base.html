@@ -34,9 +34,15 @@
               {% comment %} <a class="nav-item nav-link" href="#">Login</a>
               class="nav-item nav-link" href="#">Register</a> 
               <button class="noselect">Create Post</button>  {% endcomment %}
-              
-              <h5 style="color: #fff; padding: 18px; font-size: 20px;">Welcome back, <a style="color: antiquewhite;" 
-                href="{% url 'profile' %}"><span style="text-decoration: underline; font-weight:bolder;"><i>{{ request.user }}</i> !</span></a></h5>
+            
+              <a href="{% url 'profile' %}"><span style="text-decoration: underline; color: antiquewhite; padding: 10px; font-size: 18px;"><i>{{ request.user }}</i></span><img
+                    class="rounded-circle account-img" style="height: 55px; width: 55px;"
+                    id="profile-img"
+                    src="{{ user.profile.image.url }}"
+                    class="img-radius"
+                    alt="User-Profile-Image"
+                  /></a></div>
+                
               <span></span>
               <span></span>
               <span></span>
@@ -100,7 +106,7 @@
         <div class="col-md-8">
            {% block content %}{% endblock %}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-top: 30px;">
           <div class="content-sectionw">
             <!-- <h3>Our Sidebar</h3>
             <p class='text-muted'>You can put any information here you'd like.
@@ -173,7 +179,7 @@
           <ul class="nav justify-content-center border-bottom"  style="margin-top: 60px;">
             <li class="nav-item"><a href="{% url 'myblogApp-home' %}" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-            <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">Admin</a></li>
+            <li class="nav-item"><a href="admin/bloger" class="nav-link px-2 text-muted">Admin</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
             <li class="nav-item"><a href="about/" class="nav-link px-2 text-muted">About</a></li>
           </ul>
