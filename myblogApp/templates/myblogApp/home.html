@@ -1,6 +1,6 @@
 {% extends "myblogApp/base.html" %} {% block content %} {% for posts in posts %}
 
-<article class="media content-section">
+<article class="media content-section" style="margin-top: 40px">
   <img
     class="rounded-cirlce article-img"
     src="{{ posts.author.profile.image.url }}"
