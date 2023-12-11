@@ -12,7 +12,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'myblogApp/main.css' %}">
+    <link rel="shortcut icon" href="{% static 'myblogApp/img/blog.png'  %}" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title class="title">Update Profile</title>
 </head>
 <body>
     <header class="site-header">
@@ -107,7 +109,7 @@
             </div>
         <div class="col-md-8" style="margin-top: 10px;">
 
-            <div class="content-section">
+              <div class="content-section">
                 <form action="" method="post" enctype="multipart/form-data">
                   {% csrf_token %}
                   <fieldset class="from-group">

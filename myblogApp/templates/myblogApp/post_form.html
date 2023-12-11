@@ -13,7 +13,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'myblogApp/main.css' %}">
+    <link rel="shortcut icon" href="{% static 'myblogApp/img/blog.png'  %}" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title class="title">Create New Post</title>
 </head>
 <body>
     <header class="site-header">
@@ -118,10 +120,12 @@
                 <button class="btn btn-outline-info" type="submit">Post Now</button>
               </div>
             </form>
+            
             <div class="broder-top pt-3">
               <small class="text-muted"
                 >Done with the Post? <a href="{% url 'myblogApp-home' %}"><< Go Back</a></small
               >
+              
             </div>
           </div>
         

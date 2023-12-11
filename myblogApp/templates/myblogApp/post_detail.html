@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +11,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'myblogApp/main.css' %}">
-    <link <link rel="shortcut icon" href="{% static 'app/img/favicon.ico'  %}" />
+    <link rel="shortcut icon" href="{% static 'myblogApp/img/blog.png'  %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title>{% block title %}Update Posts{% endblock %}</title>
 </head>
 <body>
     <header class="site-header">
@@ -131,12 +134,62 @@
           
               Topic:
               <a href="#" style="text-decoration: none">{{ object.title }}</a>
-              <p>{{ post.intro }}</p>
-          
+              
               <p class="article-content">{{ object.content }}</p>
+              
+              <p>{{ post.intro }}</p>
+
+              <hr>
+              <h2 class="subtitle"><h2 class="subtitle">Community Posts/COMMENTS SECTION COMMING SOON!!!</h2></h2>
+              
+
+    {% for comment in posts.comments.all %}
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>{{ comment.name }} </strong> <small>{{ comment.date_added }}</small>
+                        <br>
+                        {{ comment.body }}
+                    </p>
+                    <br>
+                </div>
+
             </div>
-            <br />
-          </article>
+        </article>
+        {% empty %}
+        <div class="notification">
+            <p>No Comments yet</p>
+        </div>
+    <hr>
+
+    <div class="broder-top pt-3">
+      <small class="text-muted"
+        ><a href="{% url 'myblogApp-home' %}"><< Go Back</a></small
+      >
+      <i>"Please check our comments later..."</i>
+      <br><br>
+      
+    </div>
+    {% endfor %}
+
+
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <a href="{% url 'myblogApp-home' %}"></a>
+            </div>
+        </div>
+    </form>
+
+    
+
+    
+            </article>
+          
 
        
 
@@ -155,6 +208,8 @@
                 <li class="list-group-item list-group-item-light">etc</li>
               </ul>
             </p> -->
+
+            
             <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 380px;" style="padding-top: 120px;">
                 <a id="list-group" style="text-decoration: none;" href="" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
                   <!-- <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg> -->

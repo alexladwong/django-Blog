@@ -71,3 +71,19 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
+
+
+class PageTitleViewMixin:
+    title = ""
+
+    def get_title(self):
+        """
+        Return the class title attr by default,
+        but you can override this method to further customize
+        """
+        return self.title
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.get_title()
+        return context
