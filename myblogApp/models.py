@@ -30,3 +30,11 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ["date_added"]
+
+
+# class Info(models.Model):
+#     # names = models.CharField(max_length=200)
+#     descriptions = models.TextField()
+
+#     def __str__(self):
+#         return str(self.names)
