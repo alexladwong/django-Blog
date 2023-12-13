@@ -7,21 +7,27 @@ from django.contrib.auth.decorators import login_required
 def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
+        # context = {"title": "Register"}
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
             messages.success(
-                request, f"Account Successfully Created for {username} Login In Here!"
+                request, f"Account Successfully Created for {username}, Login In Here!"
             )
             return redirect("login")
     else:
         form = UserRegisterForm()
-    return render(request, "usersapp/register.html", {"form": form})
+    return render(
+        request,
+        "usersapp/register.html",
+        {"form": form},
+    )
 
 
 # User's Profile
 @login_required
 def profile(request):
+    context = {"title": "Profile"}
     return render(request, "usersapp/profile.html")
 
 
@@ -41,5 +47,5 @@ def profile_update(request):
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
 
-    context = {"u_form": u_form, "p_form": p_form}
+    context = {"u_form": u_form, "p_form": p_form, "title": "Profile Update"}
     return render(request, "usersapp/profile_update.html", context)

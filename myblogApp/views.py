@@ -24,6 +24,7 @@ def about(request):
 class PostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = "myblogApp/home.html"
+    context = {"title": "Home Page"}
     context_object_name = "posts"
 
 
@@ -74,6 +75,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class PageTitleViewMixin:
+    context = {"title": "Profile"}
     title = ""
 
     def get_title(self):

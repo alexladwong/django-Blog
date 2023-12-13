@@ -306,5 +306,5 @@ body::-webkit-scrollbar-thumb {
 
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
-  border: 2px  linear-gradient(70deg,  rgba(162, 12, 112, 0.602) 0%, rgba(143, 73, 249, 0.503) 100%);
+  border: 2px  linear-gradient(45deg,  rgba(162, 12, 112, 0.602) 0%, rgba(143, 73, 249, 0.503) 100%);
 }
