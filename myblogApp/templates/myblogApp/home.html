@@ -26,8 +26,8 @@
       >{{ posts.title }}</h1></a
     >
     
-    {% comment %} <p class="article-content">{{ posts.content }}</p> {% endcomment %}
     <p>{{ post.intro }}</p>
+    <p class="article-content">{{ posts.content|truncatechars:100 }}</p>
     
     <a href="{% url 'blog-detail' posts.id %}" style="text-decoration: none;">Read More+...</a>
   </div>
