@@ -21,7 +21,7 @@ def about(request):
     return render(request, "myblogApp/about.html", {"title": "About Us Blog"})
 
 
-class PostListView(LoginRequiredMixin, ListView):
+class PostListView(ListView):
     model = Post
     template_name = "myblogApp/home.html"
     context = {"title": "Home Page"}
@@ -40,11 +40,11 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-    # def test_func(self):
-    #     post = self.get_object()
-    #     if self.request.user == post.author:
-    #         return True
-    #     return False
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
